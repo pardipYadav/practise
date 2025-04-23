@@ -273,10 +273,32 @@ let res = red.reduce((acc, curr) => {
 console.log(res); // this will return the sum of the numbers from the array
 */
 
-let fruits = ["apple", "banana", "banana", "orange", "mango", "apple", "grape"];
+// let fruits = ["apple", "banana", "banana", "orange", "mango", "apple", "grape"];
 
-let fruit = fruits.reduce((acc, curr) => {
-  acc[curr] = (acc[curr] || 0) + 1;
-  return acc;
-}, {}); // <-- this is the empty object we're building up
-console.log(fruit);
+// let fruit = fruits.reduce((acc, curr) => {
+//   acc[curr] = (acc[curr] || 0) + 1;
+//   return acc;
+// }, {});
+// console.log(fruit);
+
+// document.writeln("hello worldss");
+// let stt = setTimeout(() => {
+//   document.writeln("hello new world");
+// }, 2000);
+// let p = prompt("do you want to settimeout please type y/n");
+// if ("n" == p) {
+//   clearTimeout(stt);
+// }
+// setTimeout(() => {
+//   document.writeln("hello world");
+// }, 5000);
+
+const sumnumber = (a, b) => {
+  console.log("yes its runiing " + (a + b));
+};
+
+setTimeout(sumnumber, 2500, 8, 9);
+
+setInterval(() => {
+  // alert("its Setinterval alert");
+}, 4000);

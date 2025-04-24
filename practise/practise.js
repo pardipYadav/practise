@@ -293,12 +293,39 @@ console.log(res); // this will return the sum of the numbers from the array
 //   document.writeln("hello world");
 // }, 5000);
 
-const sumnumber = (a, b) => {
-  console.log("yes its runiing " + (a + b));
+// const sumnumber = (a, b) => {
+//   console.log("yes its runiing " + (a + b));
+// };
+
+// setTimeout(sumnumber, 2500, 8, 9);
+
+// setInterval(() => {
+//   // alert("its Setinterval alert");
+// }, 4000);
+
+/****** Clone object  *******/
+
+const person = {
+  name: "happy",
+  age: 25,
 };
 
-setTimeout(sumnumber, 2500, 8, 9);
+const coneObject = Object.assign(
+  { name: "happy", age: "25", gender: "male" },
+  person
+);
+let changeName = (coneObject.name = "hellow rodl");
 
-setInterval(() => {
-  // alert("its Setinterval alert");
-}, 4000);
+console.log(coneObject);
+console.log(person);
+
+const person1 = {
+  name: "param",
+  sername: "yadav",
+  age: 25,
+};
+
+const objectClonePerson1 = Object.assign({}, person1);
+let changeNamep1 = (objectClonePerson1.name = "deepak");
+console.log(objectClonePerson1);
+console.log(person1);

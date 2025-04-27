@@ -305,27 +305,84 @@ console.log(res); // this will return the sum of the numbers from the array
 
 /****** Clone object  *******/
 
-const person = {
-  name: "happy",
-  age: 25,
-};
+// const person = {
+//   name: "happy",
+//   age: 25,
+// };
 
-const coneObject = Object.assign(
-  { name: "happy", age: "25", gender: "male" },
-  person
-);
-let changeName = (coneObject.name = "hellow rodl");
+// const coneObject = Object.assign(
+//   { name: "happy", age: "25", gender: "male" },
+//   person
+// );
+// let changeName = (coneObject.name = "hellow rodl");
 
-console.log(coneObject);
-console.log(person);
+// console.log(coneObject);
+// console.log(person);
 
-const person1 = {
-  name: "param",
-  sername: "yadav",
-  age: 25,
-};
+// const person1 = {
+//   name: "param",
+//   sername: "yadav",
+//   age: 25,
+// };
 
-const objectClonePerson1 = Object.assign({}, person1);
-let changeNamep1 = (objectClonePerson1.name = "deepak");
-console.log(objectClonePerson1);
-console.log(person1);
+// const objectClonePerson1 = Object.assign({}, person1);
+// let changeNamep1 = (objectClonePerson1.name = "deepak");
+// console.log(objectClonePerson1);
+// console.log(person1);
+
+// promises
+
+// let promise = new Promise(function (resolve, reject) {
+//   console.log("first Hello");
+// });
+
+// console.log("one");
+// setTimeout(() => {
+//   console.log("two");
+// }, 2000);
+
+// console.log("three");
+
+// multiple handling in promise
+
+// let p1 = new Promise((resolve, reject) => {
+//   alert("Hey I am not resolved");
+//   setTimeout(() => {
+//     resolve(1);
+//   }, 2000);
+// });
+
+// p1.then(() => {
+//   console.log("congratulation this promise is resolved");
+// });
+// p1.then(() => {
+//   console.log("hurray");
+// });
+
+let p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("resolve p1");
+  }, 1000);
+});
+
+let p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject("reject");
+    // resolve("Resolve p2");
+  }, 2000);
+});
+
+let p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Resolve p3");
+  }, 3000);
+});
+
+// let promise_all = Promise.all([p1, p2, p3]);
+// let promise_all = Promise.allSettled([p1, p2, p3]);
+// let promise_all = Promise.race([p1, p2, p3]);
+let promise_all = Promise.race([p1, p2, p3]);
+
+promise_all.then((value) => {
+  console.log(value);
+});

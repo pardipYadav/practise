@@ -387,23 +387,106 @@ console.log(res); // this will return the sum of the numbers from the array
 //   console.log(value);
 // });
 
-async function weather() {
-  let delhiWeather = new Promise((resolve, reject) => {
+// async function weather() {
+//   let delhiWeather = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("27 deg");
+//     }, 1000);
+//   });
+//   let bangalore = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("21 deg");
+//     }, 2000);
+//   });
+//   let delhiW = await delhiWeather;
+//   let bangaloreW = await bangalore;
+//   return [delhiW, bangaloreW];
+// }
+
+// let w = weather();
+// w.then((v) => {
+//   console.log(v);
+// });
+
+const loadScript = async (src) => {
+  return new Promise((resolve, reject) => {
+    let script = document.createElement("script");
+    script.src = src;
+    script.onload = () => {
+      resolve(src + " Done");
+    };
+    document.head.append(script);
+  });
+};
+
+// let a = loadScript(
+//   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+// );
+// a.then((v) => {
+//   console.log(v);
+// });
+
+// const main = async () => {
+//   let a = await loadScript(
+//     "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+//   );
+//   console.log(a);
+// };
+// main();
+
+// let p = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       reject(new Error("Please this is not acceptable"));
+//     }, 3000);
+//   });
+// };
+
+// let a = async () => {
+//   try {
+//     let c = await p();
+//     console.log(c);
+//   } catch (err) {
+//     console.log("This error has been handled");
+//   }
+// };
+// a();
+
+let p1 = () => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve("27 deg");
+      resolve(10);
     }, 1000);
   });
-  let bangalore = new Promise((resolve, reject) => {
+};
+let p2 = () => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve("21 deg");
+      resolve(20);
     }, 2000);
   });
-  let delhiW = await delhiWeather;
-  let bangaloreW = await bangalore;
-  return [delhiW, bangaloreW];
-}
+};
 
-let w = weather();
-w.then((v) => {
-  console.log(v);
-});
+let p3 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(30);
+    }, 3000);
+  });
+};
+
+const run = async () => {
+  console.time("run");
+  // its taking too much time in millisecond
+  // let a1 = await p1();
+  // let a2 = await p2();
+  // let a3 = await p3();
+
+  let a1 = p1();
+  let a2 = p2();
+  let a3 = p3();
+  let prom = await Promise.all([a1, a2, a3]);
+  console.log(prom);
+  console.timeEnd("run");
+};
+run();

@@ -218,7 +218,7 @@ let d = arr.map((value, index, array) => {
   return value + index;
 });
 console.log(d);*/
-
+// The filter() method in JavaScript is used to create a new array containing only the elements that pass a specific condition (i.e., return true in the callback function).
 // let numarr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // let f = numarr.filter((value) => {
 //   return value > 5;
